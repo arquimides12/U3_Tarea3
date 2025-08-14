@@ -1,20 +1,12 @@
 {
   "name": "PWA Showcase - Venta de Laptops",
   "short_name": "LaptopShop",
-  "start_url": "index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#FFFFCC",
   "theme_color": "#004D00",
   "icons": [
-    {
-      "src": "assets/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }

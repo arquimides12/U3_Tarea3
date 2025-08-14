@@ -2,16 +2,32 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PWA Showcase - Venta de Laptops</title>
-  <link rel="manifest" href="manifest.json" />
+
+  <!-- Manifest PWA -->
+  <link rel="manifest" href="./manifest.json" />
+
+  <!-- Import map para que 'lit' funcione en el navegador sin build -->
+  <script type="importmap">
+  {
+    "imports": {
+      "lit": "https://unpkg.com/lit@3.3.1/index.js?module"
+    }
+  }
+  </script>
+
+  <!-- (opcional) tema -->
+  <meta name="theme-color" content="#004D00" />
 </head>
 <body>
+  <!-- Tus Web Components -->
   <login-form></login-form>
   <product-comment></product-comment>
   <espe-envio-gratis total-actual="0" total-gratis="1000" tema="claro"></espe-envio-gratis>
   <espe-boton-carrito cantidad="3" tema="claro"></espe-boton-carrito>
 
-  <script type="module" src="src/index.js"></script>
+  <!-- Entrada de tu app -->
+  <script type="module" src="./src/index.js"></script>
 </body>
 </html>
