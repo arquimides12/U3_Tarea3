@@ -1,7 +1,9 @@
 // service-worker.js
+
+// Nombre de la cache
 const CACHE_NAME = 'pwa-laptop-cache-v2';
 
-// Importante: rutas RELATIVAS a la raíz del sitio (sin / inicial)
+// Archivos que se cachearán (Application Shell)
 const APP_SHELL = [
   './',
   './index.html',
@@ -12,11 +14,10 @@ const APP_SHELL = [
   './src/components/espe-envio-gratis.js',
   './src/components/espe-boton-carrito.js',
   './assets/icon-192.png',
-  './assets/icon-512.png',
-  // CDN de lit que usamos con import map (para que haya soporte offline)
-  'https://unpkg.com/lit@3.3.1/index.js?module'
+  './assets/icon-512.png'
 ];
 
+// Evento install: cachea los archivos de APP_SHELL
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL))
@@ -24,6 +25,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
+// Evento activate: elimina caches antiguas
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -33,14 +35,13 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Estrategia: Cache First con fallback a red
+// Estrategia fetch: cache first
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   event.respondWith(
     caches.match(request).then((cached) => {
       if (cached) return cached;
       return fetch(request).then((response) => {
-        // Cache dinámico para GET
         if (request.method === 'GET' && response.ok) {
           const copy = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));

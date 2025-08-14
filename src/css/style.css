@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+.header {
+  background-color: #004d00;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.comentario-envio {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+product-comment {
+  flex: 1;
+  max-width: 400px;
+}
+
+espe-envio-gratis {
+  flex: 0 0 250px;
+}
