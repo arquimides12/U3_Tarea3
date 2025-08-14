@@ -1,0 +1,20 @@
+{
+  "name": "pwa_showcase",
+  "version": "1.0.0",
+  "description": "Aplicación PWA de venta de laptops usando Web Components",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["PWA", "Web Components", "Lit", "Laptops", "ESPE"],
+  "author": "Anderson Gidianny Mendoza Lascano",
+  "license": "ISC",
+  "dependencies": {
+    "lit": "^3.3.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
