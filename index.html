@@ -6,7 +6,7 @@
   <title>PWA Showcase - Venta de Laptops</title>
 
   <!-- Manifest PWA -->
-  <link rel="manifest" href="./manifest.json" />
+  <link rel="manifest" href="manifest.json" />
 
   <!-- Import map para que 'lit' funcione en el navegador sin build -->
   <script type="importmap">
@@ -17,17 +17,29 @@
   }
   </script>
 
-  <!-- (opcional) tema -->
+  <!-- Color del tema para PWA -->
   <meta name="theme-color" content="#004D00" />
+
+  <!-- Estilos opcionales -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Tus Web Components -->
+  <!-- Componentes Web -->
   <login-form></login-form>
   <product-comment></product-comment>
   <espe-envio-gratis total-actual="0" total-gratis="1000" tema="claro"></espe-envio-gratis>
   <espe-boton-carrito cantidad="3" tema="claro"></espe-boton-carrito>
 
-  <!-- Entrada de tu app -->
-  <script type="module" src="./src/index.js"></script>
+  <!-- Script principal -->
+  <script type="module" src="src/index.js"></script>
+
+  <!-- Registro del Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(reg => console.log("Service Worker registrado:", reg))
+        .catch(err => console.error("Error al registrar Service Worker:", err));
+    }
+  </script>
 </body>
 </html>
